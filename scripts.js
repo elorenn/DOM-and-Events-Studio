@@ -8,6 +8,11 @@ function init() {
   const spaceShuttleHeight = document.getElementById('spaceShuttleHeight');
   const landingButton = document.getElementById('landing');
   const missionAbortButton = document.getElementById('missionAbort');
+  const upButton = document.getElementById('up');
+  const downButton = document.getElementById('down');
+  const rightButton = document.getElementById('right');
+  const leftButton = document.getElementById('left');
+  const rocket = document.getElementById('rocket');
 
   takeOffButton.addEventListener('click', function() {
     console.log('take off!');
@@ -36,6 +41,34 @@ function init() {
       spaceShuttleHeight.innerHTML = '0';
     }
   });
+
+  upButton.addEventListener('click', function() {
+    let location = Number((rocket.style.top).replace('px',''));
+    let moveTo = (location -= 10) + 'px';
+    console.log('up: ' + moveTo);
+    rocket.style.top = moveTo;
+  });
+
+  downButton.addEventListener('click', function() {
+    let location = Number((rocket.style.top).replace('px',''));
+    let moveTo = (location += 10) + 'px';
+    console.log('down: ' + moveTo);
+    rocket.style.top = moveTo;
+  });  
+
+  rightButton.addEventListener('click', function() {
+    let location = Number((rocket.style.left).replace('px',''));
+    let moveTo = (location += 10) + 'px';
+    console.log('right: ' + moveTo);
+    rocket.style.left = moveTo;
+  });
+
+  leftButton.addEventListener('click', function() {
+    let location = Number((rocket.style.left).replace('px',''));
+    let moveTo = (location -= 10) + 'px';
+    console.log('left: ' + moveTo);
+    rocket.style.left = moveTo;
+  });  
 }
 
 window.addEventListener('load', init);
