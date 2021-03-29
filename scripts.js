@@ -53,6 +53,9 @@ function pageLoaded() {
   */
 
   upButton.addEventListener('click', function() {
+    console.log(shuttleBackground.style);
+    console.log(shuttleBackground.style.height);
+
     let location = Number((rocket.style.top).replace('px',''));
     let height = Number(spaceShuttleHeight.innerHTML);
     if (location > 0) {
